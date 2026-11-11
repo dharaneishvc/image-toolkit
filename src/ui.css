@@ -2,7 +2,6 @@
 .sidebar { width: 256px; flex-shrink: 0; border-right: 1px solid var(--line); background: #fff; height: 100dvh; position: sticky; top: 0; display: flex; flex-direction: column; z-index: 20; }
 .brand { display: flex; gap: 12px; align-items: center; padding: 25px 22px; text-decoration: none; font-weight: 700; font-size: 21px; line-height: 1; }
 .brand-mark { background: var(--accent); color: #fff; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 6px; }
-.brand-sub { display: block; font-weight: 400; font-size: 11px; margin-top: 7px; color: var(--muted); }
 .nav-search { margin: 2px 14px 12px; display: flex; gap: 8px; align-items: center; padding: 0 8px; border: 1px solid var(--line); border-radius: 4px; color: var(--muted); }
 .nav-search input { width: 100%; border: 0; background: transparent; padding: 10px 0; font-size: 12px; }
 .nav-search .icon-button { width: 25px; height: 30px; }

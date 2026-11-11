@@ -17,15 +17,16 @@ npm run dev
 
 ## GitHub Pages
 
-1. Create a separate GitHub repository for this folder. Public repositories use the normal free Pages path; private hosting depends on the plan. GitHub model/API credits are not needed.
-2. Initialize Git if needed, review and create your first commit, use `main` as the default branch, add your selected remote, and push. No credentials belong in source.
-3. In Settings > Pages choose GitHub Actions. The included pipeline runs on PRs/main pushes/manual dispatch. Only successful `main` builds deploy; PR code never receives deployment permissions.
+This project is hosted in [`dharaneishvc/image-toolkit`](https://github.com/dharaneishvc/image-toolkit), whose Pages URL is `https://dharaneishvc.github.io/image-toolkit/`.
+
+1. Commit and push `.github/workflows/ci.yml` to `main`. The workflow runs verification for pull requests and deploys only successful `main` builds.
+2. In repository Settings > Pages, set the build and deployment source to **GitHub Actions**. The first deployment cannot succeed until Pages is enabled for this repository.
+3. Check the Actions tab for a successful `Verify and deploy` run, then open the Pages URL above. Hash routes and Vite's relative asset base support the repository subpath without rewrite rules. Use the workflow's `github-pages` deployment environment URL if the Pages URL changes.
 4. Protect `main` with required `verify` status, PR review, and no direct/force pushes. Ruleset availability depends on the GitHub plan.
-5. Pages normally publishes at `https://OWNER.github.io/REPOSITORY/`. Hash routes and relative Vite base avoid rewrite rules. Confirm actual asset/worker subpaths after publication.
 
 The deployment job consumes the exact verified production artifact. PR validation has read-only permissions, checkout does not persist credentials, and no contributor code runs under `pull_request_target`. Only deployment has Pages/OIDC write permissions. Review/pin actions to approved immutable SHAs under your supply-chain policy; Dependabot proposes npm/action updates. Pages limits are not unlimited or a commercial SLA.
 
-Rollback by reverting a faulty commit through a reviewed PR and redeploying a passing main build. Never silently disable checks. No remote GitHub publishing or deployment has been executed in this workspace.
+Rollback by reverting a faulty commit through a reviewed PR and redeploying a passing main build. Never silently disable checks. Workflow configuration is present locally; it must be committed and pushed before GitHub can run it.
 
 ## Jenkins PR checks
 

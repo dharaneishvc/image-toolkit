@@ -27,6 +27,8 @@ describe('repository contracts', () => {
     expect(workflow.jobs.deploy.if).toContain("github.event_name != 'pull_request'")
     expect(workflow.jobs.deploy.if).toContain('refs/heads/main')
     expect(workflow.jobs.verify.steps.map((step: { run?: string }) => step.run).filter(Boolean)).toContain('npm run test:e2e')
+    expect(workflow.jobs.verify.steps.some((step: { uses?: string }) => step.uses === 'actions/upload-pages-artifact@v3')).toBe(true)
+    expect(workflow.jobs.deploy.steps.some((step: { uses?: string }) => step.uses === 'actions/deploy-pages@v4')).toBe(true)
   })
   it('parses dependency updates', () => expect(YAML.parse(readFileSync(resolve('.github/dependabot.yml'), 'utf8')).updates).toHaveLength(2))
 })
