@@ -1,0 +1,5 @@
+:root { --accent: #bd4054; --accent-dark: #922b3c; --accent-light: #faeaed; }
+.image-toolbar { border: 0; padding: 0 0 22px; flex-wrap: wrap; }
+.dimension-label { font: 10px 'IBM Plex Mono', monospace; color: var(--muted); }
+.value-label { color: #202427; font: 10px 'IBM Plex Mono', monospace; }
+.palette { padding: 20px 0; }
